@@ -44,3 +44,16 @@ Link of code: https://tailwindcss.com/plus/ui-blocks/application-ui/application-
 Link of code: https://tailwindcss.com/plus/ui-blocks/application-ui/navigation/pagination
 
 --> Here we completed our first section of product!
+
+(1) from tailwind css we use Login and sign up form template with below code link and added in component section
+
+Link of code: https://tailwindcss.com/plus/ui-blocks/application-ui/forms/sign-in-forms
+
+(2) React Router
+-> npm install react-router-dom and paste basic template code into app.js level
+
+--> Here we have completed second section added login and signup page with proper routing
+
+(3) Added cart page template from Tailwind CSS and modified according to need and added routing for the same
+
+Link to code : https://tailwindcss.com/plus/ui-blocks/ecommerce/components/shopping-carts
