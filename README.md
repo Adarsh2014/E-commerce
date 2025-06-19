@@ -1,5 +1,7 @@
 Day Wednesday 18 June, Started 3:23 PM
 
+<b>Section 0</b>
+
 (1)Setup React Vite in VS Code:
 
 command - > npm create vite@latest E-commerce -- --template react
@@ -12,9 +14,9 @@ command - > npm create vite@latest E-commerce -- --template react
 import { defineConfig } from 'vite'
 import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
-  plugins: [
-    tailwindcss(),
-  ],
+plugins: [
+tailwindcss(),
+],
 })
 -> Add below to index.css
 @import "tailwindcss";
@@ -27,6 +29,8 @@ export default defineConfig({
 
 --> Here you are ready to use Global redux state management in your project
 
+<b>Section 1</b>
+
 (4) under the feature folder, we use one template css template known as "Product list" we direct copy code from there in our ProductList jsx and its work fine on screen as it should.
 
 Link of Code: https://tailwindcss.com/plus/ui-blocks/ecommerce/components/product-lists
@@ -35,7 +39,7 @@ Link of Code: https://tailwindcss.com/plus/ui-blocks/ecommerce/components/produc
 
 code : https://tailwindcss.com/plus/ui-blocks/ecommerce/components/category-filters
 
-(6) we use another code from tailwind css that is Navbar(Stacked Layouts) and we created the new feature named as Navbar and paste entire code. in the place "{/* Your content */}" we pass children as props which is Product list
+(6) we use another code from tailwind css that is Navbar(Stacked Layouts) and we created the new feature named as Navbar and paste entire code. in the place "{/_ Your content _/}" we pass children as props which is Product list
 
 Link of code: https://tailwindcss.com/plus/ui-blocks/application-ui/application-shells/stacked
 
@@ -44,6 +48,8 @@ Link of code: https://tailwindcss.com/plus/ui-blocks/application-ui/application-
 Link of code: https://tailwindcss.com/plus/ui-blocks/application-ui/navigation/pagination
 
 --> Here we completed our first section of product!
+
+<b>Section 2</b>
 
 (1) from tailwind css we use Login and sign up form template with below code link and added in component section
 
@@ -54,6 +60,25 @@ Link of code: https://tailwindcss.com/plus/ui-blocks/application-ui/forms/sign-i
 
 --> Here we have completed second section added login and signup page with proper routing
 
-(3) Added cart page template from Tailwind CSS and modified according to need and added routing for the same
+<b>Section 3</b>
+
+(1) Added cart page template from Tailwind CSS and modified according to need and added routing for the same
 
 Link to code : https://tailwindcss.com/plus/ui-blocks/ecommerce/components/shopping-carts
+
+<b>Section 4</b>
+
+(1) From Tailwind Css we copy one template named as form layout which we modified as checkout page! in below code except first div code, rest another two div code copy as it is and after that in bottom one new div created where we pasted entire code of cart.jsx for time being, will delete once we have actual Data.
+
+Code Link: https://tailwindcss.com/plus/ui-blocks/application-ui/forms/form-layouts
+
+(2) Now we modified containt of form, last div from above code "notification " converted into payment menthod and above that we created one Addresss header where we store from personal information address into <p> tag. after that we make existing addresses into radio option to select one address. last "cancel" and "save" button put below Personal information and checkpout cart page content modified. Also Router is set for pay. Here to store address we use one template from tailwind css. below is code link:
+
+code link : https://tailwindcss.com/plus/ui-blocks/application-ui/lists/stacked-lists
+
+(3) Product detailed Page: To show details of page, we choose product overview template from tailwind css. below is code link for the same.
+
+code link: https://tailwindcss.com/plus/ui-blocks/ecommerce/components/product-overviews
+
+-> We pasted entire code into ProductDetail component and Link to Map function of ProductList componente so that on clicking each item, redirect to that product detail.
+-> After that we created one page "Productdetalpage" to show on app level.

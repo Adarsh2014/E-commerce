@@ -1,5 +1,5 @@
-
 import CartPage from "./features/pages/CartPage";
+import Checkout from "./features/pages/Checkout";
 import Home from "./features/pages/Home";
 import LoginPage from "./features/pages/LoginPage";
 import SignupPage from "./features/pages/SignupPage";
@@ -9,32 +9,39 @@ import {
   Route,
   Link,
 } from "react-router-dom";
+import ProductDetailPage from "./features/pages/ProductDetaiPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: (
-      <Home/>
-    ),
+    element: <Home />,
   },
   {
     path: "/login",
-    element: <LoginPage/>,
+    element: <LoginPage />,
   },
   {
     path: "/signup",
-    element: <SignupPage/>,
+    element: <SignupPage />,
   },
-   {
+  {
     path: "/cart",
-    element: <CartPage/>,
+    element: <CartPage />,
+  },
+  {
+    path: "/checkout",
+    element: <Checkout />,
+  },
+  {
+    path: "/product-detail",
+    element: <ProductDetailPage />,
   },
 ]);
 
 function App() {
   return (
     <>
- <RouterProvider router={router} />
+      <RouterProvider router={router} />
     </>
   );
 }
