@@ -1,17 +1,11 @@
-
+import Home from "./features/pages/Home";
 
 function App() {
-
-
   return (
     <>
-      
-     <h1 class="text-3xl font-bold underline text-red-500">
-    Hello world!
-  </h1>
-      
+      <Home/>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

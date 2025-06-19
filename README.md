@@ -1,12 +1,46 @@
-# React + Vite
+Day Wednesday 18 June, Started 3:23 PM
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+(1)Setup React Vite in VS Code:
 
-Currently, two official plugins are available:
+command - > npm create vite@latest E-commerce -- --template react
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+--> Here You are ready to see your project structure
 
-## Expanding the ESLint configuration
+(2) Setup Tailwind CSS in Vite
+-> npm install tailwindcss @tailwindcss/vite
+-> add below code to vite.config.ts
+import { defineConfig } from 'vite'
+import tailwindcss from '@tailwindcss/vite'
+export default defineConfig({
+  plugins: [
+    tailwindcss(),
+  ],
+})
+-> Add below to index.css
+@import "tailwindcss";
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+--> Here You are ready to use Tailwind css code in your project
+
+(3) Setup Redux in project
+-> npm install @reduxjs/toolkit
+-> npm install react-redux
+
+--> Here you are ready to use Global redux state management in your project
+
+(4) under the feature folder, we use one template css template known as "Product list" we direct copy code from there in our ProductList jsx and its work fine on screen as it should.
+
+Link of Code: https://tailwindcss.com/plus/ui-blocks/ecommerce/components/product-lists
+
+(5) take another template name feature category to filter product and use below code in same file which is ProductList.jsx
+
+code : https://tailwindcss.com/plus/ui-blocks/ecommerce/components/category-filters
+
+(6) we use another code from tailwind css that is Navbar(Stacked Layouts) and we created the new feature named as Navbar and paste entire code. in the place "{/* Your content */}" we pass children as props which is Product list
+
+Link of code: https://tailwindcss.com/plus/ui-blocks/application-ui/application-shells/stacked
+
+(7) at the last of Product List code we add pagination code from tailwind css below <section> tag and successfully can see UI of paggination at bottom
+
+Link of code: https://tailwindcss.com/plus/ui-blocks/application-ui/navigation/pagination
+
+--> Here we completed our first section of product!
