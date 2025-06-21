@@ -82,3 +82,19 @@ code link: https://tailwindcss.com/plus/ui-blocks/ecommerce/components/product-o
 
 -> We pasted entire code into ProductDetail component and Link to Map function of ProductList componente so that on clicking each item, redirect to that product detail.
 -> After that we created one page "Productdetalpage" to show on app level.
+
+<b>Section 5</b>
+Now we Visited to https://dummyjson.com/ for API and we took https://dummyjson.com/products this data. after that we keep only [] part rest deleteted and saved under cariable products and remove prevous dummy one from tailwind. Then we configure with this new data like product.thumbnail and chnages some css and now we can successfully see 30 page cart in our product page.
+
+Now we want to create dummy API from data so we use json-server
+(1)npm install json-server
+(2) create one data.json file in your directory with json data
+(3)npx json-server data.json
+and we got our port to run data locally and we need to run this every time to use that data.
+
+(2) Now we started implementing Redux in our system: Refer file ProductSlice.jsx, ProductAPI.jsx and Store.jsx and see how we wrap provider to main.jsx
+with redux implementaion, we get data as API from dummy server.
+
+(3) After that we implemneted fetchproductAllbyfilter similar to API and implemneted in redux slice and this way now we can filter our list by just drop down or check box select.
+
+--> Here we are done with Fetching Data from API using Redux and its filter logic.
