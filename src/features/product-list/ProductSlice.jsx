@@ -8,8 +8,8 @@ const initialState = {
 
 export const fetchProductsByFilterAsync = createAsyncThunk(
   "product/fetchProductsByFilter",
-  async (filter) => {
-    const response = await fetchProductsByFilter(filter);
+  async ({ filter, sort }) => {
+    const response = await fetchProductsByFilter(filter, sort);
     return response.data;
   }
 );

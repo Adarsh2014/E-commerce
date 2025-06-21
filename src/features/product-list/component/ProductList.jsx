@@ -28,11 +28,7 @@ import {
   PlusIcon,
   Squares2X2Icon,
 } from "@heroicons/react/20/solid";
-import {
-  fetchAllProductAsync,
-  fetchProductsByFilterAsync,
-  selectAllProducts,
-} from "../ProductSlice";
+import { fetchProductsByFilterAsync, selectAllProducts } from "../ProductSlice";
 
 const sortOptions = [
   { name: "Best Rating", sort: "rating", order: "desc", current: false },
@@ -91,23 +87,37 @@ const ProductList = () => {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const products = useSelector(selectAllProducts);
   const [filter, setFilter] = useState({});
+  const [sort, setSort] = useState({});
 
   const handleFilter = (e, section, option) => {
-    const newFilter = { ...filter, [section.id]: option.value };
-    setFilter(newFilter);
-    dispatch(fetchProductsByFilterAsync(newFilter));
+    //TODO: Fix the issue with the checkbox to select multiple category in one timr properly
+    console.log(e.target.checked);
+    const newFilter = { ...filter };
+    if (e.target.checked) {
+      if (newFilter[section.id]) {
+        newFilter[section.id].push(option.value);
+      } else {
+        newFilter[section.id] = [option.value];
+      }
+    } else {
+      const index = newFilter[section.id].findIndex(
+        (el) => el === option.value
+      );
+      newFilter[section.id].splice(index, 1);
+    }
     console.log(newFilter);
+    setFilter(newFilter);
   };
 
   const handleSort = (e, option) => {
-    const newFilter = { ...filter, _sort: option.sort, _order: option.order };
-    setFilter(newFilter);
-    dispatch(fetchProductsByFilterAsync(newFilter));
+    const sort = { _sort: option.sort, _order: option.order };
+    console.log("sort", sort);
+    setSort(sort);
   };
 
   useEffect(() => {
-    dispatch(fetchAllProductAsync());
-  }, [dispatch]);
+    dispatch(fetchProductsByFilterAsync({ filter, sort }));
+  }, [dispatch, filter, sort]);
 
   if (!products || products.length === 0) {
     return <p>Loading...</p>;

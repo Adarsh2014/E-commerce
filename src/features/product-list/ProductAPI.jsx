@@ -13,12 +13,16 @@ export async function fetchAllProducts() {
 }
 
 export async function fetchProductsByFilter(filter) {
-  //filter = {"category": "smartPhone"}
+  //filter = {"category": ["smartPhone", "tablet"]}
+  // sort ={_sort: "price", _order: "asc"}
   let queryString = "";
   for (let key in filter) {
-    queryString += `${key}=${filter[key]}&`;
+    const categoryValue = filter[key];
+    if (categoryValue.length > 0) {
+      const lastCategoryValue = categoryValue[categoryValue.length - 1];
+      queryString += `${key}=${lastCategoryValue}&`;
+    }
   }
-
   try {
     const response = await fetch(
       "http://localhost:3000/products?" + queryString
