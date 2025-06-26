@@ -180,7 +180,7 @@ const NavBar = ({ children }) => {
                   <span className="sr-only">View notifications</span>
                   <ShoppingCartIcon aria-hidden="true" className="size-6" />
                   <span className="absolute -top-2 -right-2 inline-flex items-center justify-center rounded-full bg-red-100 w-5 h-5 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
-                    3
+                    2
                   </span>
                 </button>
               </Link>

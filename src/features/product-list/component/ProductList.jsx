@@ -28,8 +28,12 @@ import {
   PlusIcon,
   Squares2X2Icon,
 } from "@heroicons/react/20/solid";
-import { fetchProductsByFilterAsync, selectAllProducts } from "../ProductSlice";
-
+import {
+  fetchProductsByFilterAsync,
+  selectAllProducts,
+  selectTotalItem,
+} from "../ProductSlice";
+import { ITEM_PER_PAGE } from "../../../app/constant";
 const sortOptions = [
   { name: "Best Rating", sort: "rating", order: "desc", current: false },
   { name: "Price: Low to High", sort: "price", order: "asc", current: false },
@@ -86,9 +90,10 @@ const ProductList = () => {
   const dispatch = useDispatch();
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const products = useSelector(selectAllProducts);
+  const totalItem = useSelector(selectTotalItem);
   const [filter, setFilter] = useState({});
   const [sort, setSort] = useState({});
-
+  const [page, setPage] = useState(1);
   const handleFilter = (e, section, option) => {
     //TODO: Fix the issue with the checkbox to select multiple category in one timr properly
     console.log(e.target.checked);
@@ -115,9 +120,19 @@ const ProductList = () => {
     setSort(sort);
   };
 
+  const handlePage = (page) => {
+    console.log("page", page);
+    setPage(page);
+  };
+
   useEffect(() => {
-    dispatch(fetchProductsByFilterAsync({ filter, sort }));
-  }, [dispatch, filter, sort]);
+    const pagination = { _page: page, _limit: ITEM_PER_PAGE };
+    dispatch(fetchProductsByFilterAsync({ filter, sort, pagination }));
+  }, [dispatch, filter, sort, page]);
+
+  useEffect(() => {
+    setPage(1);
+  }, [totalItem, sort]);
 
   if (!products || products.length === 0) {
     return <p>Loading...</p>;
@@ -210,7 +225,11 @@ const ProductList = () => {
 
           {/* {Start below paggination code} */}
           <div>
-            <Pagination />
+            <Pagination
+              page={page}
+              handlePage={handlePage}
+              totalItem={totalItem}
+            />
           </div>
           {/* {end above paggination code} */}
         </main>
@@ -467,7 +486,7 @@ function ProductGrid({ products }) {
     </div>
   );
 }
-function Pagination() {
+function Pagination({ page, handlePage, totalItem }) {
   return (
     <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
       <div className="flex flex-1 justify-between sm:hidden">
@@ -487,9 +506,17 @@ function Pagination() {
       <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
         <div>
           <p className="text-sm text-gray-700">
-            Showing <span className="font-medium">1</span> to{" "}
-            <span className="font-medium">10</span> of{" "}
-            <span className="font-medium">97</span> results
+            Showing{" "}
+            <span className="font-medium">
+              {(page - 1) * ITEM_PER_PAGE + 1}
+            </span>{" "}
+            to{" "}
+            <span className="font-medium">
+              {page * ITEM_PER_PAGE > totalItem
+                ? totalItem
+                : page * ITEM_PER_PAGE}
+            </span>{" "}
+            of <span className="font-medium">{totalItem}</span> results
           </p>
         </div>
         <div>
@@ -505,46 +532,22 @@ function Pagination() {
               <ChevronLeftIcon aria-hidden="true" className="size-5" />
             </a>
             {/* Current: "z-10 bg-indigo-600 text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", Default: "text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0" */}
-            <a
-              href="#"
-              aria-current="page"
-              className="relative z-10 inline-flex items-center bg-indigo-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-            >
-              1
-            </a>
-            <a
-              href="#"
-              className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-gray-300 ring-inset hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
-            >
-              2
-            </a>
-            <a
-              href="#"
-              className="relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-gray-300 ring-inset hover:bg-gray-50 focus:z-20 focus:outline-offset-0 md:inline-flex"
-            >
-              3
-            </a>
-            <span className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-700 ring-1 ring-gray-300 ring-inset focus:outline-offset-0">
-              ...
-            </span>
-            <a
-              href="#"
-              className="relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-gray-300 ring-inset hover:bg-gray-50 focus:z-20 focus:outline-offset-0 md:inline-flex"
-            >
-              8
-            </a>
-            <a
-              href="#"
-              className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-gray-300 ring-inset hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
-            >
-              9
-            </a>
-            <a
-              href="#"
-              className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-gray-300 ring-inset hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
-            >
-              10
-            </a>
+            {Array.from({ length: Math.ceil(totalItem / ITEM_PER_PAGE) }).map(
+              (e, index) => (
+                <div
+                  key={index}
+                  onClick={() => handlePage(index + 1)}
+                  aria-current="page"
+                  className={`relative z-10 cursor-pointer inline-flex items-center ${
+                    index + 1 === page
+                      ? "bg-indigo-600 text-white"
+                      : "text-gray-400"
+                  } px-4 py-2 text-sm font-semibold focus:z-20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600`}
+                >
+                  {index + 1}
+                </div>
+              )
+            )}
             <a
               href="#"
               className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-gray-300 ring-inset hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
