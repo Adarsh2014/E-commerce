@@ -29,57 +29,21 @@ import {
   Squares2X2Icon,
 } from "@heroicons/react/20/solid";
 import {
+  fetchBrandAsync,
+  fetchCategoriesAsync,
   fetchProductsByFilterAsync,
+  fetchWeightAsync,
   selectAllProducts,
+  selectBrands,
+  selectCategories,
   selectTotalItem,
+  selectWeight,
 } from "../ProductSlice";
 import { ITEM_PER_PAGE } from "../../../app/constant";
 const sortOptions = [
   { name: "Best Rating", sort: "rating", order: "desc", current: false },
   { name: "Price: Low to High", sort: "price", order: "asc", current: false },
   { name: "Price: High to Low", sort: "price", order: "desc", current: false },
-];
-
-const filters = [
-  {
-    id: "brand",
-    name: "brand",
-    options: [
-      { value: "Essence", label: "Essence", checked: false },
-      { value: "GlamourBeauty", label: "Glamour Beauty", checked: false },
-      { value: "VelvetTouch", label: "Velvet Touch", checked: false },
-      { value: "ChicCosmetics", label: "Chic-Cosmetics", checked: false },
-      { value: "CalvinKlein", label: "Calvin Klein", checked: false },
-      { value: "Chanel", label: "Chanel", checked: false },
-    ],
-  },
-  {
-    id: "category",
-    name: "Category",
-    options: [
-      { value: "beauty", label: "beauty", checked: false },
-      { value: "fragrances", label: "fragrances", checked: false },
-      { value: "furniture", label: "furniture", checked: false },
-      { value: "groceries", label: "groceries", checked: false },
-      { value: "fruit", label: "fruit", checked: false },
-    ],
-  },
-  {
-    id: "weight",
-    name: "weight",
-    options: [
-      { value: "1", label: "1", checked: false },
-      { value: "2", label: "2", checked: false },
-      { value: "3", label: "3", checked: false },
-      { value: "4", label: "4", checked: false },
-      { value: "5", label: "5", checked: false },
-      { value: "6", label: "6", checked: false },
-      { value: "7", label: "7", checked: false },
-      { value: "8", label: "8", checked: false },
-      { value: "9", label: "9", checked: false },
-      { value: "10", label: "10", checked: false },
-    ],
-  },
 ];
 
 function classNames(...classes) {
@@ -90,6 +54,26 @@ const ProductList = () => {
   const dispatch = useDispatch();
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const products = useSelector(selectAllProducts);
+  const brands = useSelector(selectBrands);
+  const categories = useSelector(selectCategories);
+  const weight = useSelector(selectWeight);
+  const filters = [
+    {
+      id: "brand",
+      name: "brand",
+      options: brands,
+    },
+    {
+      id: "category",
+      name: "Category",
+      options: categories,
+    },
+    {
+      id: "weight",
+      name: "weight",
+      options: weight,
+    },
+  ];
   const totalItem = useSelector(selectTotalItem);
   const [filter, setFilter] = useState({});
   const [sort, setSort] = useState({});
@@ -134,6 +118,12 @@ const ProductList = () => {
     setPage(1);
   }, [totalItem, sort]);
 
+  useEffect(() => {
+    dispatch(fetchBrandAsync());
+    dispatch(fetchCategoriesAsync());
+    dispatch(fetchWeightAsync());
+  }, []);
+
   if (!products || products.length === 0) {
     return <p>Loading...</p>;
   }
@@ -144,6 +134,7 @@ const ProductList = () => {
         <MobileFilter
           mobileFiltersOpen={mobileFiltersOpen}
           setMobileFiltersOpen={setMobileFiltersOpen}
+          filters={filters}
         />
         <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-baseline justify-between border-b border-gray-200 pt-24 pb-6">
@@ -212,7 +203,7 @@ const ProductList = () => {
 
             {/* {Start below DesktopFilter code} */}
             <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
-              <DeskTopFilter handleFilter={handleFilter} />
+              <DeskTopFilter handleFilter={handleFilter} filters={filters} />
 
               {/* {Start below Product Grid code} */}
               <div className="lg:col-span-3">
@@ -240,7 +231,7 @@ const ProductList = () => {
 
 export default ProductList;
 
-function MobileFilter({ mobileFiltersOpen, setMobileFiltersOpen }) {
+function MobileFilter({ mobileFiltersOpen, setMobileFiltersOpen, filters }) {
   return (
     <div>
       <Dialog
@@ -352,7 +343,7 @@ function MobileFilter({ mobileFiltersOpen, setMobileFiltersOpen }) {
     </div>
   );
 }
-function DeskTopFilter({ handleFilter }) {
+function DeskTopFilter({ handleFilter, filters }) {
   return (
     <div>
       <form className="hidden lg:block">
@@ -487,21 +478,22 @@ function ProductGrid({ products }) {
   );
 }
 function Pagination({ page, handlePage, totalItem }) {
+  const totalPages = Math.ceil(totalItem / ITEM_PER_PAGE);
   return (
     <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
       <div className="flex flex-1 justify-between sm:hidden">
-        <a
-          href="#"
+        <div
+          onClick={() => handlePage(page > 1 ? page - 1 : page)}
           className="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
         >
           Previous
-        </a>
-        <a
-          href="#"
+        </div>
+        <div
+          onClick={() => handlePage(page < totalPages ? page + 1 : page)}
           className="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
         >
           Next
-        </a>
+        </div>
       </div>
       <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
         <div>
@@ -524,37 +516,35 @@ function Pagination({ page, handlePage, totalItem }) {
             aria-label="Pagination"
             className="isolate inline-flex -space-x-px rounded-md shadow-xs"
           >
-            <a
-              href="#"
+            <div
+              onClick={() => handlePage(page > 1 ? page - 1 : page)}
               className="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-gray-300 ring-inset hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
             >
               <span className="sr-only">Previous</span>
               <ChevronLeftIcon aria-hidden="true" className="size-5" />
-            </a>
+            </div>
             {/* Current: "z-10 bg-indigo-600 text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", Default: "text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0" */}
-            {Array.from({ length: Math.ceil(totalItem / ITEM_PER_PAGE) }).map(
-              (e, index) => (
-                <div
-                  key={index}
-                  onClick={() => handlePage(index + 1)}
-                  aria-current="page"
-                  className={`relative z-10 cursor-pointer inline-flex items-center ${
-                    index + 1 === page
-                      ? "bg-indigo-600 text-white"
-                      : "text-gray-400"
-                  } px-4 py-2 text-sm font-semibold focus:z-20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600`}
-                >
-                  {index + 1}
-                </div>
-              )
-            )}
-            <a
-              href="#"
+            {Array.from({ length: totalPages }).map((e, index) => (
+              <div
+                key={index}
+                onClick={() => handlePage(index + 1)}
+                aria-current="page"
+                className={`relative z-10 cursor-pointer inline-flex items-center ${
+                  index + 1 === page
+                    ? "bg-indigo-600 text-white"
+                    : "text-gray-400"
+                } px-4 py-2 text-sm font-semibold focus:z-20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600`}
+              >
+                {index + 1}
+              </div>
+            ))}
+            <div
+              onClick={() => handlePage(page < totalPages ? page + 1 : page)}
               className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-gray-300 ring-inset hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
             >
               <span className="sr-only">Next</span>
               <ChevronRightIcon aria-hidden="true" className="size-5" />
-            </a>
+            </div>
           </nav>
         </div>
       </div>

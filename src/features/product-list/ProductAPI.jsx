@@ -52,3 +52,45 @@ export async function fetchProductsByFilter(filter, sort, pagination) {
     return { data: [] };
   }
 }
+
+export async function fetchCategories() {
+  try {
+    const response = await fetch("http://localhost:3000/categories");
+    if (!response.ok) {
+      throw new Error(`HTTP error: ${response.status}`);
+    }
+    const data = await response.json();
+    return { data };
+  } catch (error) {
+    console.error("Error fetching all products:", error.message);
+    return { data: [] };
+  }
+}
+
+export async function fetchBrands() {
+  try {
+    const response = await fetch("http://localhost:3000/brands");
+    if (!response.ok) {
+      throw new Error(`HTTP error: ${response.status}`);
+    }
+    const data = await response.json();
+    return { data };
+  } catch (error) {
+    console.error("Error fetching all products:", error.message);
+    return { data: [] };
+  }
+}
+
+export async function fetchWeight() {
+  try {
+    const response = await fetch("http://localhost:3000/weight");
+    if (!response.ok) {
+      throw new Error(`HTTP error: ${response.status}`);
+    }
+    const data = await response.json();
+    return { data };
+  } catch (error) {
+    console.error("Error fetching all products:", error.message);
+    return { data: [] };
+  }
+}
