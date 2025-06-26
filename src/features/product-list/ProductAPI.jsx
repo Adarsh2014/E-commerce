@@ -12,6 +12,20 @@ export async function fetchAllProducts() {
   }
 }
 
+export async function fetchProductByid(id) {
+  try {
+    const response = await fetch("http://localhost:3000/products/?id=" + id);
+    if (!response.ok) {
+      throw new Error(`HTTP error: ${response.status}`);
+    }
+    const data = await response.json();
+    return { data };
+  } catch (error) {
+    console.error("Error fetching all products:", error.message);
+    return { data: [] };
+  }
+}
+
 export async function fetchProductsByFilter(filter, sort, pagination) {
   //filter = {"category": ["smartPhone", "tablet"]}
   // sort ={_sort: "price", _order: "asc"}
