@@ -1,7 +1,20 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
+import { checkUserAsync, selectError, selectLoggedInUser } from "../authSlice";
 function Login() {
+  const error = useSelector(selectError);
+  const user = useSelector(selectLoggedInUser);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const dispatch = useDispatch();
+
   return (
     <div>
+      {user && <Navigate to="/" replace={true}></Navigate>}
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <Link to="/">
@@ -17,7 +30,17 @@ function Login() {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form action="#" method="POST" className="space-y-6">
+          <form
+            noValidate
+            onSubmit={handleSubmit((data) => {
+              dispatch(
+                checkUserAsync({ email: data.email, password: data.password })
+              );
+
+              console.log("Form submitted with data:", data);
+            })}
+            className="space-y-6"
+          >
             <div>
               <label
                 htmlFor="email"
@@ -28,12 +51,19 @@ function Login() {
               <div className="mt-2">
                 <input
                   id="email"
-                  name="email"
+                  {...register("email", {
+                    required: "Email could not be blank...",
+                    pattern: {
+                      value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                      message: "Please enter a valid email address.",
+                    },
+                  })}
                   type="email"
-                  required
-                  autoComplete="email"
                   className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                 />
+                {errors.email && (
+                  <p className="text-red-600">{errors.email.message}</p>
+                )}
               </div>
             </div>
 
@@ -57,12 +87,16 @@ function Login() {
               <div className="mt-2">
                 <input
                   id="password"
-                  name="password"
+                  {...register("password", {
+                    required: "Password could not be blank...",
+                  })}
                   type="password"
-                  required
-                  autoComplete="current-password"
                   className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                 />
+                {errors.password && (
+                  <p className="text-red-600">{errors.password.message}</p>
+                )}
+                {error && <p className="text-red-500">{error}</p>}
               </div>
             </div>
 

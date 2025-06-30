@@ -10,11 +10,16 @@ import {
   Link,
 } from "react-router-dom";
 import ProductDetailPage from "./features/pages/ProductDetaiPage";
+import Protected from "./features/auth/component/Protected";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: (
+      <Protected>
+        <Home />
+      </Protected>
+    ),
   },
   {
     path: "/login",
@@ -30,11 +35,19 @@ const router = createBrowserRouter([
   },
   {
     path: "/checkout",
-    element: <Checkout />,
+    element: (
+      <Protected>
+        <Checkout />
+      </Protected>
+    ),
   },
   {
     path: "/product-detail/:id",
-    element: <ProductDetailPage />,
+    element: (
+      <Protected>
+        <ProductDetailPage />
+      </Protected>
+    ),
   },
 ]);
 

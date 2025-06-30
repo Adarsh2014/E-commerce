@@ -26,9 +26,9 @@ const navigation = [
   { name: "About", href: "#", current: false },
 ];
 const userNavigation = [
-  { name: "Your Profile", href: "#" },
-  { name: "Settings", href: "#" },
-  { name: "Sign out", href: "#" },
+  { name: "Your Profile", link: "/" },
+  { name: "Settings", link: "/" },
+  { name: "Sign out", link: "/login" },
 ];
 
 function classNames(...classes) {
@@ -187,14 +187,13 @@ const NavBar = ({ children }) => {
             </div>
             <div className="mt-3 space-y-1 px-2">
               {userNavigation.map((item) => (
-                <DisclosureButton
+                <Link
                   key={item.name}
-                  as="a"
-                  href={item.href}
+                  to={item.link}
                   className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
                 >
                   {item.name}
-                </DisclosureButton>
+                </Link>
               ))}
             </div>
           </div>

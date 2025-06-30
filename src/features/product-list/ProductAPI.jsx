@@ -41,7 +41,7 @@ export async function fetchProductsByFilter(filter, sort, pagination) {
   for (let key in sort) {
     queryString += `${key}=${sort[key]}&`;
   }
-  console.log(pagination);
+
   for (let key in pagination) {
     queryString += `${key}=${pagination[key]}&`;
   }
@@ -49,10 +49,9 @@ export async function fetchProductsByFilter(filter, sort, pagination) {
     queryString = queryString.slice(0, -1);
   }
   const url = "http://localhost:3000/products?" + queryString;
-  console.log("Fetching URL:", url); // Debug log
+  console.log("Final URL:", url);
   try {
     const response = await fetch(url);
-    console.log("Total response:", response);
     if (!response.ok) {
       throw new Error(`HTTP error: ${response.status}`);
     }

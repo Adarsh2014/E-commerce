@@ -1,7 +1,20 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { selectLoggedInUser, createUserAsync } from "../authSlice";
+import { useDispatch, useSelector } from "react-redux";
 function Signup() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  console.log(errors);
+
+  const dispatch = useDispatch();
+  const user = useSelector(selectLoggedInUser);
   return (
     <div>
+      {user && <Navigate to="/" replace={true}></Navigate>}
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <Link to="/">
@@ -17,7 +30,16 @@ function Signup() {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form action="#" method="POST" className="space-y-6">
+          <form
+            noValidate
+            onSubmit={handleSubmit((data) => {
+              dispatch(
+                createUserAsync({ email: data.email, password: data.password })
+              );
+              console.log("Form submitted with data:", data);
+            })}
+            className="space-y-6"
+          >
             <div>
               <label
                 htmlFor="email"
@@ -28,12 +50,19 @@ function Signup() {
               <div className="mt-2">
                 <input
                   id="email"
-                  name="email"
+                  {...register("email", {
+                    required: "Email could not be blank...",
+                    pattern: {
+                      value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                      message: "Please enter a valid email address.",
+                    },
+                  })}
                   type="email"
-                  required
-                  autoComplete="email"
                   className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                 />
+                {errors.email && (
+                  <p className="text-red-600">{errors.email.message}</p>
+                )}
               </div>
             </div>
 
@@ -49,12 +78,22 @@ function Signup() {
               <div className="mt-2">
                 <input
                   id="password"
-                  name="password"
+                  {...register("password", {
+                    required: "Password could not be blank...",
+                    pattern: {
+                      value:
+                        /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm,
+                      message: `- at least 8 characters\n
+- must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number\n
+- Can contain special characters`,
+                    },
+                  })}
                   type="password"
-                  required
-                  autoComplete="current-password"
                   className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                 />
+                {errors.password && (
+                  <p className="text-red-600">{errors.password.message}</p>
+                )}
               </div>
             </div>
 
@@ -70,11 +109,19 @@ function Signup() {
               <div className="mt-2">
                 <input
                   id="confirm-password"
-                  name="confirm-password"
+                  {...register("confirm-password", {
+                    required: "Please Confirm the password same as Password...",
+                    validate: (value, formValues) =>
+                      value === formValues.password || "Passwords do not match",
+                  })}
                   type="password"
-                  required
                   className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                 />
+                {errors["confirm-password"] && (
+                  <p className="text-red-600">
+                    {errors["confirm-password"].message}
+                  </p>
+                )}
               </div>
             </div>
 
