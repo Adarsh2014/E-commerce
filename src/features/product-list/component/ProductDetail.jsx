@@ -8,6 +8,8 @@ import { Radio, RadioGroup } from "@headlessui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProductByidAsync, selectedProductByid } from "../ProductSlice";
 import { useParams } from "react-router-dom";
+import { addToCartAsync } from "../../cart/cartSlice";
+import { selectLoggedInUser } from "../../auth/authSlice";
 
 const colors = [
   {
@@ -52,8 +54,17 @@ const ProductDetail = () => {
   const [selectedSize, setSelectedSize] = useState(sizes[2]);
   //TODO : In Server Data we will add Color, sizze highlights etc
   const product = useSelector(selectedProductByid);
+  const user = useSelector(selectLoggedInUser);
   const dispatch = useDispatch();
   const params = useParams();
+  const handleCart = (e) => {
+    e.preventDefault();
+    if (product && user) {
+      const productToCart = { ...product[0], quantity: 1, user: user.id };
+      delete productToCart.id;
+      dispatch(addToCartAsync(productToCart));
+    }
+  };
   useEffect(() => {
     dispatch(fetchProductByidAsync(params.id));
   }, [dispatch, params.id]);
@@ -149,7 +160,7 @@ const ProductDetail = () => {
                   </div>
                 </div>
 
-                <form className="mt-10">
+                <form className="mt-10" onSubmit={handleCart}>
                   {/* Colors */}
                   <div>
                     <h3 className="text-sm font-medium text-gray-900">Color</h3>

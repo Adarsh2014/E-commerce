@@ -12,7 +12,9 @@ import {
   ShoppingCartIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { selectCartItems } from "../cart/cartSlice";
 
 const user = {
   name: "Tom Cook",
@@ -35,6 +37,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 const NavBar = ({ children }) => {
+  const item = useSelector(selectCartItems);
   return (
     <div className="min-h-full">
       <Disclosure as="nav" className="bg-gray-800">
@@ -80,9 +83,11 @@ const NavBar = ({ children }) => {
                     <span className="absolute -inset-1.5" />
                     <span className="sr-only">View notifications</span>
                     <ShoppingCartIcon aria-hidden="true" className="size-6" />
-                    <span className="absolute -top-2 -right-2 inline-flex items-center justify-center rounded-full bg-red-100 w-5 h-5 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
-                      3
-                    </span>
+                    {item.length > 0 && (
+                      <span className="absolute -top-2 -right-2 inline-flex items-center justify-center rounded-full bg-red-100 w-5 h-5 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
+                        {item.length}
+                      </span>
+                    )}
                   </button>
                 </Link>
 
@@ -179,9 +184,11 @@ const NavBar = ({ children }) => {
                   <span className="absolute -inset-1.5" />
                   <span className="sr-only">View notifications</span>
                   <ShoppingCartIcon aria-hidden="true" className="size-6" />
-                  <span className="absolute -top-2 -right-2 inline-flex items-center justify-center rounded-full bg-red-100 w-5 h-5 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
-                    2
-                  </span>
+                  {item.length > 0 && (
+                    <span className="absolute -top-2 -right-2 inline-flex items-center justify-center rounded-full bg-red-100 w-5 h-5 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
+                      {item.length}
+                    </span>
+                  )}
                 </button>
               </Link>
             </div>
