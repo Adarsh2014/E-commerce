@@ -17,18 +17,17 @@ import { Link } from "react-router-dom";
 import { selectCartItems } from "../cart/cartSlice";
 
 const user = {
-  name: "Tom Cook",
-  email: "tom@example.com",
-  imageUrl:
-    "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+  name: "Adarsh Dubey",
+  email: "adarsh14dubey@gmail.com",
+  imageUrl: "https://avatars.githubusercontent.com/u/107687438?v=4",
 };
 const navigation = [
-  { name: "Dashboard", href: "#", current: true },
-  { name: "Team", href: "#", current: false },
-  { name: "About", href: "#", current: false },
+  { name: "Dashboard", link: "/", current: false },
+  { name: "Team", link: "/team", current: false },
+  { name: "About", link: "/about", current: false },
 ];
 const userNavigation = [
-  { name: "Your Profile", link: "/" },
+  { name: "Your Profile", link: "/profile" },
   { name: "Settings", link: "/" },
   { name: "Sign out", link: "/login" },
 ];
@@ -56,9 +55,9 @@ const NavBar = ({ children }) => {
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
                   {navigation.map((item) => (
-                    <a
+                    <Link
                       key={item.name}
-                      href={item.href}
+                      to={item.link}
                       aria-current={item.current ? "page" : undefined}
                       className={classNames(
                         item.current
@@ -68,7 +67,7 @@ const NavBar = ({ children }) => {
                       )}
                     >
                       {item.name}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>

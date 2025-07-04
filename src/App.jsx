@@ -17,6 +17,8 @@ import { fetchItemByUseridAsync } from "./features/cart/cartSlice";
 import { selectLoggedInUser } from "./features/auth/authSlice";
 import PageNotFound from "./features/pages/404";
 import OrderSuccessPage from "./features/pages/OrderSuccessPage";
+import AboutPage from "./features/pages/AboutPage";
+import TeamPage from "./features/pages/TeamPage";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +26,22 @@ const router = createBrowserRouter([
     element: (
       <Protected>
         <Home />
+      </Protected>
+    ),
+  },
+  {
+    path: "/about",
+    element: (
+      <Protected>
+        <AboutPage />
+      </Protected>
+    ),
+  },
+  {
+    path: "/team",
+    element: (
+      <Protected>
+        <TeamPage />
       </Protected>
     ),
   },
