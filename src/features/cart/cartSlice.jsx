@@ -4,6 +4,7 @@ import {
   addToCart,
   deleteCart,
   fetchItemByUserid,
+  resetCart,
   updateCart,
 } from "./cartAPI";
 const initialState = {
@@ -41,6 +42,14 @@ export const deleteCartAync = createAsyncThunk(
   "cart/deleteCart",
   async (itemId) => {
     const response = await deleteCart(itemId);
+    return response.data;
+  }
+);
+
+export const resetCartAsync = createAsyncThunk(
+  "cart/resetCart",
+  async (userId) => {
+    const response = await resetCart(userId);
     return response.data;
   }
 );
@@ -115,6 +124,20 @@ export const cartSlice = createSlice({
         }
       })
       .addCase(deleteCartAync.rejected, (state, action) => {
+        state.status = "failed";
+        state.error =
+          action.payload ||
+          action.error.message ||
+          "Failed to add item to cart.";
+      })
+      .addCase(resetCartAsync.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(resetCartAsync.fulfilled, (state) => {
+        state.status = "succeeded";
+        state.items = [];
+      })
+      .addCase(resetCartAsync.rejected, (state, action) => {
         state.status = "failed";
         state.error =
           action.payload ||

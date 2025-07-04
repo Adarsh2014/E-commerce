@@ -71,3 +71,29 @@ export async function deleteCart(itemId) {
     return { data: [] };
   }
 }
+
+export async function resetCart(userId) {
+  try {
+    const response = await fetchItemByUserid(userId);
+
+    const items = response.data;
+
+    if (!Array.isArray(items)) {
+      console.error(
+        "resetCart: Expected items to be an array, but received:",
+        items
+      );
+      throw new Error("Invalid data format received for cart items.");
+    }
+
+    const deletePromises = items.map((item) => deleteCart(item.id));
+    await Promise.all(deletePromises);
+
+    console.log(`Cart for user ${userId} reset successfully.`);
+
+    return { data: [] };
+  } catch (error) {
+    console.error("Error resetting cart:", error.message);
+    throw error;
+  }
+}

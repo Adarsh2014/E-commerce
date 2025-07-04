@@ -21,13 +21,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { selectLoggedInUser, updateUserAsync } from "../auth/authSlice";
-import { createOrderAsync } from "../order/orderSlice";
+import { createOrderAsync, selectCurrentOrder } from "../order/orderSlice";
 
 function Checkout() {
   const dispatch = useDispatch();
   const [selectedAddress, setSelectedAddress] = useState(null);
   const [paymentMethod, setPaymentMethod] = useState(null);
   const user = useSelector(selectLoggedInUser);
+  const currentOrder = useSelector(selectCurrentOrder);
   const {
     register,
     handleSubmit,
@@ -68,14 +69,21 @@ function Checkout() {
   };
 
   const handleOrder = () => {
-    const order = {
-      items: item,
-      total: sum,
-      address: selectedAddress,
-      paymentMethod,
-      totalItems,
-    };
-    dispatch(createOrderAsync(order));
+    if (selectedAddress && paymentMethod) {
+      const order = {
+        item,
+        sum,
+        totalItems,
+        user,
+        paymentMethod,
+        selectedAddress,
+      };
+      dispatch(createOrderAsync(order));
+      // need to redirect from here to a new page of order success.
+    } else {
+      // TODO : we can use proper messaging popup here
+      alert("Enter Address and Payment method");
+    }
     //TODO: Add success message and redirect to order confirmation page
     // Clear the cart after order is placed
     //On server need to handle stock update and order creation
@@ -83,6 +91,12 @@ function Checkout() {
   return (
     <>
       {!item.length && <Navigate to="/cart" replace={true}></Navigate>}
+      {currentOrder && (
+        <Navigate
+          to={`/order-success/${currentOrder.id}`}
+          replace={true}
+        ></Navigate>
+      )}
       <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5">
           <div className="lg:col-span-3">
@@ -408,7 +422,6 @@ function Checkout() {
 
                         <div className="flex items-center gap-x-4 p-4 border rounded-lg shadow-sm hover:shadow-md transition-all">
                           <input
-                            defaultChecked
                             onChange={handlePayment}
                             id="cash"
                             value="cash"
