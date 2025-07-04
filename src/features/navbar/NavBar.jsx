@@ -28,7 +28,7 @@ const navigation = [
 ];
 const userNavigation = [
   { name: "Your Profile", link: "/profile" },
-  { name: "Settings", link: "/" },
+  { name: "My Order", link: "/orders" },
   { name: "Sign out", link: "/login" },
 ];
 
@@ -109,12 +109,12 @@ const NavBar = ({ children }) => {
                   >
                     {userNavigation.map((item) => (
                       <MenuItem key={item.name}>
-                        <a
-                          href={item.href}
+                        <Link
+                          to={item.link}
                           className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:outline-hidden"
                         >
                           {item.name}
-                        </a>
+                        </Link>
                       </MenuItem>
                     ))}
                   </MenuItems>
@@ -144,8 +144,8 @@ const NavBar = ({ children }) => {
             {navigation.map((item) => (
               <DisclosureButton
                 key={item.name}
-                as="a"
-                href={item.href}
+                as="Link"
+                to={item.link}
                 aria-current={item.current ? "page" : undefined}
                 className={classNames(
                   item.current

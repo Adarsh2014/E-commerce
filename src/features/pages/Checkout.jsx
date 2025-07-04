@@ -77,6 +77,7 @@ function Checkout() {
         user,
         paymentMethod,
         selectedAddress,
+        status: "Pending",
       };
       dispatch(createOrderAsync(order));
       // need to redirect from here to a new page of order success.

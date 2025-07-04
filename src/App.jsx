@@ -19,6 +19,7 @@ import PageNotFound from "./features/pages/404";
 import OrderSuccessPage from "./features/pages/OrderSuccessPage";
 import AboutPage from "./features/pages/AboutPage";
 import TeamPage from "./features/pages/TeamPage";
+import UserOrderPage from "./features/pages/UserOrderPage";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,14 @@ const router = createBrowserRouter([
     element: (
       <Protected>
         <TeamPage />
+      </Protected>
+    ),
+  },
+  {
+    path: "/orders",
+    element: (
+      <Protected>
+        <UserOrderPage />
       </Protected>
     ),
   },
