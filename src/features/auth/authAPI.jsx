@@ -42,4 +42,7 @@ export async function checkUser(loginInfo) {
   }
 }
 
-
+export async function signOut(userId) {
+  console.log(userId);
+  return { data: "success" };
+}
