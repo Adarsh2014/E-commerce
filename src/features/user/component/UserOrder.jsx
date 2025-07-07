@@ -13,6 +13,7 @@ import {
   MapPinIcon,
   PhoneIcon,
 } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
 
 const UserOrder = () => {
   const dispatch = useDispatch();
@@ -27,7 +28,28 @@ const UserOrder = () => {
     <div className="bg-gray-50 py-10 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold text-gray-900 mb-10">My Orders</h2>
-
+        {orders.length === 0 && (
+          <div className="flex flex-col items-center justify-center py-24 text-center bg-white rounded-xl shadow-md border border-gray-200">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/11329/11329450.png"
+              alt="No Orders"
+              className="w-32 h-32 mb-6 opacity-80"
+            />
+            <h3 className="text-2xl font-semibold text-gray-700 mb-2">
+              No Orders Found
+            </h3>
+            <p className="text-sm text-gray-500 max-w-md">
+              Looks like you haven't placed any orders yet. Once you do, all
+              your order details will appear here.
+            </p>
+            <Link
+              to="/"
+              className="mt-6 inline-block bg-indigo-600 text-white px-5 py-2 rounded-md text-sm font-medium shadow hover:bg-indigo-500 transition"
+            >
+              Start Shopping
+            </Link>
+          </div>
+        )}
         {orders.map((order) => (
           <div
             key={order.id}

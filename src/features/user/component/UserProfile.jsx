@@ -366,7 +366,7 @@ const UserProfile = () => {
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {" "}
             {/* Adjusted grid for more columns on larger screens */}
-            {user.addresses.length > 0 ? (
+            {user && user.addresses && user.addresses.length > 0 ? (
               user.addresses.map((address, index) => (
                 <div key={address.id || index} className="relative">
                   {" "}

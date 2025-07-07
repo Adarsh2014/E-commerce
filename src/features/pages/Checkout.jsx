@@ -60,6 +60,7 @@ function Checkout() {
 
   const handleAddress = (e) => {
     console.log("Selected address:", e.target.value);
+
     setSelectedAddress(user.addresses[e.target.value]);
   };
 
@@ -109,7 +110,7 @@ function Checkout() {
                 dispatch(
                   updateUserAsync({
                     ...user,
-                    addresses: [...user.addresses, data],
+                    addresses: [...user.address, data],
                   })
                 );
                 reset();
@@ -355,36 +356,42 @@ function Checkout() {
                           </li>
                         ))}
                       </ul> */}
-                      <div className="grid gap-6 md:grid-cols-2">
-                        {user.addresses.map((address, index) => (
-                          <label
-                            key={index}
-                            className="group block border rounded-xl p-5 cursor-pointer transition-shadow duration-300 hover:shadow-lg focus-within:ring-2 focus-within:ring-indigo-500"
-                          >
-                            <div className="flex items-start gap-4">
-                              <input
-                                type="radio"
-                                onChange={handleAddress}
-                                name="address"
-                                value={index}
-                                className="mt-1 h-5 w-5 text-indigo-600 border-gray-300 focus:ring-indigo-500"
-                              />
-                              <div className="flex-1">
-                                <h3 className="text-lg font-semibold text-gray-900 mb-1">
-                                  {address.name}
-                                </h3>
-                                <p className="text-sm text-gray-600">
-                                  {address.street}, {address.city},{" "}
-                                  {address.pinCode}
-                                </p>
-                                <p className="text-sm text-gray-500 mt-1">
-                                  Phone: {address.phone}
-                                </p>
+                      {user && user.addresses && user.addresses.length > 0 ? (
+                        <div className="grid gap-6 md:grid-cols-2">
+                          {user.addresses.map((address, index) => (
+                            <label
+                              key={index}
+                              className="group block border rounded-xl p-5 cursor-pointer transition-shadow duration-300 hover:shadow-lg focus-within:ring-2 focus-within:ring-indigo-500"
+                            >
+                              <div className="flex items-start gap-4">
+                                <input
+                                  type="radio"
+                                  onChange={handleAddress}
+                                  name="address"
+                                  value={index}
+                                  className="mt-1 h-5 w-5 text-indigo-600 border-gray-300 focus:ring-indigo-500"
+                                />
+                                <div className="flex-1">
+                                  <h3 className="text-lg font-semibold text-gray-900 mb-1">
+                                    {address.name}
+                                  </h3>
+                                  <p className="text-sm text-gray-600">
+                                    {address.street}, {address.city},{" "}
+                                    {address.pinCode}
+                                  </p>
+                                  <p className="text-sm text-gray-500 mt-1">
+                                    Phone: {address.phone}
+                                  </p>
+                                </div>
                               </div>
-                            </div>
-                          </label>
-                        ))}
-                      </div>
+                            </label>
+                          ))}
+                        </div>
+                      ) : (
+                        <p className="text-sm text-gray-500 italic">
+                          No saved addresses. Please add a new address above.
+                        </p>
+                      )}
                       <h2 className="text-xl font-semibold text-gray-900 mt-8">
                         Payment Method
                       </h2>
