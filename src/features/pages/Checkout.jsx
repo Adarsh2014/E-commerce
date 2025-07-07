@@ -20,14 +20,15 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { selectLoggedInUser, updateUserAsync } from "../auth/authSlice";
+import { updateUserAsync } from "../user/userSlice";
 import { createOrderAsync, selectCurrentOrder } from "../order/orderSlice";
+import { selectUserInfo } from "../user/userSlice";
 
 function Checkout() {
   const dispatch = useDispatch();
   const [selectedAddress, setSelectedAddress] = useState(null);
   const [paymentMethod, setPaymentMethod] = useState(null);
-  const user = useSelector(selectLoggedInUser);
+  const user = useSelector(selectUserInfo);
   const currentOrder = useSelector(selectCurrentOrder);
   const {
     register,

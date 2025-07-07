@@ -1939,14 +1939,24 @@
           "name": "Adarsh Dubey",
           "email": "adarsh14dubey@gmail.com",
           "country": "India",
-          "street": "Wagle I.E.",
+          "street": "Lokmanya Nagar",
           "city": "Thane",
           "state": "Maharashtra",
           "pinCode": "400604",
           "phone": "09136531570"
         },
         {
-          "name": "Adarsh Dubey",
+          "name": "Prashant Gupta",
+          "email": "prashantgupta@chutiya.com",
+          "country": "India",
+          "street": "Lokmanya Nagar",
+          "city": "Thane",
+          "state": "Maharashtra",
+          "pinCode": "400604",
+          "phone": "7977007426"
+        },
+        {
+          "name": "Amit Yadav",
           "email": "adarsh14dubey@gmail.com",
           "country": "India",
           "street": "Wagle I.E.",
@@ -2173,6 +2183,522 @@
         "state": "Maharashtra",
         "pinCode": "400604",
         "phone": "09136531570"
+      },
+      "status": "Pending"
+    },
+    {
+      "id": "a917",
+      "item": [
+        {
+          "id": "b7db",
+          "title": "Essence Mascara Lash Princess",
+          "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
+          "category": "beauty",
+          "price": 9.99,
+          "discountPercentage": 10.48,
+          "rating": 2.56,
+          "stock": 99,
+          "tags": [
+            "beauty",
+            "mascara"
+          ],
+          "brand": "Essence",
+          "sku": "BEA-ESS-ESS-001",
+          "weight": 4,
+          "dimensions": {
+            "width": 15.14,
+            "height": 13.08,
+            "depth": 22.99
+          },
+          "warrantyInformation": "1 week warranty",
+          "shippingInformation": "Ships in 3-5 business days",
+          "availabilityStatus": "In Stock",
+          "reviews": [
+            {
+              "rating": 3,
+              "comment": "Would not recommend!",
+              "date": "2025-04-30T09:41:02.053Z",
+              "reviewerName": "Eleanor Collins",
+              "reviewerEmail": "eleanor.collins@x.dummyjson.com"
+            },
+            {
+              "rating": 4,
+              "comment": "Very satisfied!",
+              "date": "2025-04-30T09:41:02.053Z",
+              "reviewerName": "Lucas Gordon",
+              "reviewerEmail": "lucas.gordon@x.dummyjson.com"
+            },
+            {
+              "rating": 5,
+              "comment": "Highly impressed!",
+              "date": "2025-04-30T09:41:02.053Z",
+              "reviewerName": "Eleanor Collins",
+              "reviewerEmail": "eleanor.collins@x.dummyjson.com"
+            }
+          ],
+          "returnPolicy": "No return policy",
+          "minimumOrderQuantity": 48,
+          "meta": {
+            "createdAt": "2025-04-30T09:41:02.053Z",
+            "updatedAt": "2025-04-30T09:41:02.053Z",
+            "barcode": "5784719087687",
+            "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+          },
+          "images": [
+            "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/1.webp"
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp",
+          "quantity": 1,
+          "user": "8e64"
+        },
+        {
+          "id": "c9f0",
+          "title": "Red Nail Polish",
+          "description": "The Red Nail Polish offers a rich and glossy red hue for vibrant and polished nails. With a quick-drying formula, it provides a salon-quality finish at home.",
+          "category": "beauty",
+          "price": 8.99,
+          "discountPercentage": 11.44,
+          "rating": 4.32,
+          "stock": 79,
+          "tags": [
+            "beauty",
+            "nail polish"
+          ],
+          "brand": "Nail Couture",
+          "sku": "BEA-NAI-NAI-005",
+          "weight": 8,
+          "dimensions": {
+            "width": 21.63,
+            "height": 16.48,
+            "depth": 29.84
+          },
+          "warrantyInformation": "1 month warranty",
+          "shippingInformation": "Ships overnight",
+          "availabilityStatus": "In Stock",
+          "reviews": [
+            {
+              "rating": 2,
+              "comment": "Poor quality!",
+              "date": "2025-04-30T09:41:02.053Z",
+              "reviewerName": "Benjamin Wilson",
+              "reviewerEmail": "benjamin.wilson@x.dummyjson.com"
+            },
+            {
+              "rating": 5,
+              "comment": "Great product!",
+              "date": "2025-04-30T09:41:02.053Z",
+              "reviewerName": "Liam Smith",
+              "reviewerEmail": "liam.smith@x.dummyjson.com"
+            },
+            {
+              "rating": 1,
+              "comment": "Very unhappy with my purchase!",
+              "date": "2025-04-30T09:41:02.053Z",
+              "reviewerName": "Clara Berry",
+              "reviewerEmail": "clara.berry@x.dummyjson.com"
+            }
+          ],
+          "returnPolicy": "No return policy",
+          "minimumOrderQuantity": 22,
+          "meta": {
+            "createdAt": "2025-04-30T09:41:02.053Z",
+            "updatedAt": "2025-04-30T09:41:02.053Z",
+            "barcode": "4063010628104",
+            "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+          },
+          "images": [
+            "https://cdn.dummyjson.com/product-images/beauty/red-nail-polish/1.webp"
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/red-nail-polish/thumbnail.webp",
+          "quantity": 1,
+          "user": "8e64"
+        }
+      ],
+      "sum": 18.98,
+      "totalItems": 2,
+      "user": {
+        "id": "8e64",
+        "email": "adarsh14dubey@gmail.com",
+        "password": "Amma@123",
+        "addresses": [
+          {
+            "name": "Adarsh Dubey",
+            "email": "adarsh14dubey@gmail.com",
+            "country": "India",
+            "street": "Wagle I.E.",
+            "city": "Thane",
+            "state": "Maharashtra",
+            "pinCode": "400604",
+            "phone": "09136531570"
+          },
+          {
+            "name": "Adarsh Dubey",
+            "email": "adarsh14dubey@gmail.com",
+            "country": "India",
+            "street": "Wagle I.E.",
+            "city": "Thane",
+            "state": "Maharashtra",
+            "pinCode": "400604",
+            "phone": "09136531570"
+          }
+        ]
+      },
+      "paymentMethod": "card",
+      "selectedAddress": {
+        "name": "Adarsh Dubey",
+        "email": "adarsh14dubey@gmail.com",
+        "country": "India",
+        "street": "Wagle I.E.",
+        "city": "Thane",
+        "state": "Maharashtra",
+        "pinCode": "400604",
+        "phone": "09136531570"
+      },
+      "status": "Pending"
+    },
+    {
+      "id": "fa1a",
+      "item": [
+        {
+          "id": "11af",
+          "title": "Essence Mascara Lash Princess",
+          "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
+          "category": "beauty",
+          "price": 9.99,
+          "discountPercentage": 10.48,
+          "rating": 2.56,
+          "stock": 99,
+          "tags": [
+            "beauty",
+            "mascara"
+          ],
+          "brand": "Essence",
+          "sku": "BEA-ESS-ESS-001",
+          "weight": 4,
+          "dimensions": {
+            "width": 15.14,
+            "height": 13.08,
+            "depth": 22.99
+          },
+          "warrantyInformation": "1 week warranty",
+          "shippingInformation": "Ships in 3-5 business days",
+          "availabilityStatus": "In Stock",
+          "reviews": [
+            {
+              "rating": 3,
+              "comment": "Would not recommend!",
+              "date": "2025-04-30T09:41:02.053Z",
+              "reviewerName": "Eleanor Collins",
+              "reviewerEmail": "eleanor.collins@x.dummyjson.com"
+            },
+            {
+              "rating": 4,
+              "comment": "Very satisfied!",
+              "date": "2025-04-30T09:41:02.053Z",
+              "reviewerName": "Lucas Gordon",
+              "reviewerEmail": "lucas.gordon@x.dummyjson.com"
+            },
+            {
+              "rating": 5,
+              "comment": "Highly impressed!",
+              "date": "2025-04-30T09:41:02.053Z",
+              "reviewerName": "Eleanor Collins",
+              "reviewerEmail": "eleanor.collins@x.dummyjson.com"
+            }
+          ],
+          "returnPolicy": "No return policy",
+          "minimumOrderQuantity": 48,
+          "meta": {
+            "createdAt": "2025-04-30T09:41:02.053Z",
+            "updatedAt": "2025-04-30T09:41:02.053Z",
+            "barcode": "5784719087687",
+            "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+          },
+          "images": [
+            "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/1.webp"
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp",
+          "quantity": 1,
+          "user": "8e64"
+        }
+      ],
+      "sum": 9.99,
+      "totalItems": 1,
+      "user": {
+        "id": "8e64",
+        "email": "adarsh14dubey@gmail.com",
+        "password": "Amma@123",
+        "addresses": [
+          {
+            "name": "Adarsh Dubey",
+            "email": "adarsh14dubey@gmail.com",
+            "country": "India",
+            "street": "Wagle I.E.",
+            "city": "Thane",
+            "state": "Maharashtra",
+            "pinCode": "400604",
+            "phone": "09136531570"
+          }
+        ]
+      },
+      "paymentMethod": "card",
+      "selectedAddress": {
+        "name": "Adarsh Dubey",
+        "email": "adarsh14dubey@gmail.com",
+        "country": "India",
+        "street": "Wagle I.E.",
+        "city": "Thane",
+        "state": "Maharashtra",
+        "pinCode": "400604",
+        "phone": "09136531570"
+      },
+      "status": "Pending"
+    },
+    {
+      "id": "c5b4",
+      "item": [
+        {
+          "id": "872c",
+          "title": "Essence Mascara Lash Princess",
+          "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
+          "category": "beauty",
+          "price": 9.99,
+          "discountPercentage": 10.48,
+          "rating": 2.56,
+          "stock": 99,
+          "tags": [
+            "beauty",
+            "mascara"
+          ],
+          "brand": "Essence",
+          "sku": "BEA-ESS-ESS-001",
+          "weight": 4,
+          "dimensions": {
+            "width": 15.14,
+            "height": 13.08,
+            "depth": 22.99
+          },
+          "warrantyInformation": "1 week warranty",
+          "shippingInformation": "Ships in 3-5 business days",
+          "availabilityStatus": "In Stock",
+          "reviews": [
+            {
+              "rating": 3,
+              "comment": "Would not recommend!",
+              "date": "2025-04-30T09:41:02.053Z",
+              "reviewerName": "Eleanor Collins",
+              "reviewerEmail": "eleanor.collins@x.dummyjson.com"
+            },
+            {
+              "rating": 4,
+              "comment": "Very satisfied!",
+              "date": "2025-04-30T09:41:02.053Z",
+              "reviewerName": "Lucas Gordon",
+              "reviewerEmail": "lucas.gordon@x.dummyjson.com"
+            },
+            {
+              "rating": 5,
+              "comment": "Highly impressed!",
+              "date": "2025-04-30T09:41:02.053Z",
+              "reviewerName": "Eleanor Collins",
+              "reviewerEmail": "eleanor.collins@x.dummyjson.com"
+            }
+          ],
+          "returnPolicy": "No return policy",
+          "minimumOrderQuantity": 48,
+          "meta": {
+            "createdAt": "2025-04-30T09:41:02.053Z",
+            "updatedAt": "2025-04-30T09:41:02.053Z",
+            "barcode": "5784719087687",
+            "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+          },
+          "images": [
+            "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/1.webp"
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp",
+          "quantity": 1,
+          "user": "8e64"
+        }
+      ],
+      "sum": 9.99,
+      "totalItems": 1,
+      "user": {
+        "id": "8e64",
+        "email": "adarsh14dubey@gmail.com",
+        "password": "Amma@123",
+        "addresses": [
+          {
+            "name": "Adarsh Dubey",
+            "email": "adarsh14dubey@gmail.com",
+            "country": "India",
+            "street": "Wagle I.E.",
+            "city": "Thane",
+            "state": "Maharashtra",
+            "pinCode": "400604",
+            "phone": "09136531570"
+          },
+          {
+            "name": "Adarsh Dubey",
+            "email": "adarsh14dubey@gmail.com",
+            "country": "India",
+            "street": "Lokamnay Depot",
+            "city": "Thane",
+            "state": "Maharashtra",
+            "pinCode": "400604",
+            "phone": "09136531570"
+          },
+          {
+            "name": "Adarsh Dubey",
+            "email": "adarsh14dubey@gmail.com",
+            "country": "India",
+            "street": "Indira nagar",
+            "city": "Thane",
+            "state": "Maharashtra",
+            "pinCode": "400604",
+            "phone": "09136531570"
+          },
+          {
+            "name": "Adarsh Dubey",
+            "email": "adarsh14dubey@gmail.com",
+            "country": "India",
+            "street": "SatheNgara",
+            "city": "Thane",
+            "state": "Maharashtra",
+            "pinCode": "400604",
+            "phone": "09136531570"
+          }
+        ]
+      },
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "Adarsh Dubey",
+        "email": "adarsh14dubey@gmail.com",
+        "country": "India",
+        "street": "Wagle I.E.",
+        "city": "Thane",
+        "state": "Maharashtra",
+        "pinCode": "400604",
+        "phone": "09136531570"
+      },
+      "status": "Pending"
+    },
+    {
+      "id": "4b61",
+      "item": [
+        {
+          "id": "9c7e",
+          "title": "Essence Mascara Lash Princess",
+          "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
+          "category": "beauty",
+          "price": 9.99,
+          "discountPercentage": 10.48,
+          "rating": 2.56,
+          "stock": 99,
+          "tags": [
+            "beauty",
+            "mascara"
+          ],
+          "brand": "Essence",
+          "sku": "BEA-ESS-ESS-001",
+          "weight": 4,
+          "dimensions": {
+            "width": 15.14,
+            "height": 13.08,
+            "depth": 22.99
+          },
+          "warrantyInformation": "1 week warranty",
+          "shippingInformation": "Ships in 3-5 business days",
+          "availabilityStatus": "In Stock",
+          "reviews": [
+            {
+              "rating": 3,
+              "comment": "Would not recommend!",
+              "date": "2025-04-30T09:41:02.053Z",
+              "reviewerName": "Eleanor Collins",
+              "reviewerEmail": "eleanor.collins@x.dummyjson.com"
+            },
+            {
+              "rating": 4,
+              "comment": "Very satisfied!",
+              "date": "2025-04-30T09:41:02.053Z",
+              "reviewerName": "Lucas Gordon",
+              "reviewerEmail": "lucas.gordon@x.dummyjson.com"
+            },
+            {
+              "rating": 5,
+              "comment": "Highly impressed!",
+              "date": "2025-04-30T09:41:02.053Z",
+              "reviewerName": "Eleanor Collins",
+              "reviewerEmail": "eleanor.collins@x.dummyjson.com"
+            }
+          ],
+          "returnPolicy": "No return policy",
+          "minimumOrderQuantity": 48,
+          "meta": {
+            "createdAt": "2025-04-30T09:41:02.053Z",
+            "updatedAt": "2025-04-30T09:41:02.053Z",
+            "barcode": "5784719087687",
+            "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+          },
+          "images": [
+            "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/1.webp"
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp",
+          "quantity": 2,
+          "user": "8e64"
+        }
+      ],
+      "sum": 19.98,
+      "totalItems": 2,
+      "user": {
+        "id": "8e64",
+        "email": "adarsh14dubey@gmail.com",
+        "password": "Amma@123",
+        "addresses": [
+          {
+            "name": "Adarsh Dubey",
+            "email": "adarsh14dubey@gmail.com",
+            "country": "India",
+            "street": "Mumbai",
+            "city": "Thane",
+            "state": "Maharashtra",
+            "pinCode": "400604",
+            "phone": "09136531570"
+          },
+          {
+            "name": "Adarsh Dubey",
+            "email": "adarsh14dubey@gmail.com",
+            "country": "India",
+            "street": "Lokmanya nagar",
+            "city": "Thane",
+            "state": "Maharashtra",
+            "pinCode": "400604",
+            "phone": "09136531570"
+          },
+          {
+            "name": "Adarsh Dubey",
+            "email": "adarsh14dubey@gmail.com",
+            "country": "India",
+            "street": "Wagle I.E.",
+            "city": "Thane",
+            "state": "Maharashtra",
+            "pinCode": "400604",
+            "phone": "09136531570",
+            "id": 1751714249678
+          }
+        ]
+      },
+      "paymentMethod": "card",
+      "selectedAddress": {
+        "name": "Adarsh Dubey",
+        "email": "adarsh14dubey@gmail.com",
+        "country": "India",
+        "street": "Wagle I.E.",
+        "city": "Thane",
+        "state": "Maharashtra",
+        "pinCode": "400604",
+        "phone": "09136531570",
+        "id": 1751714249678
       },
       "status": "Pending"
     }

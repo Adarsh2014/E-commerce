@@ -20,6 +20,8 @@ import OrderSuccessPage from "./features/pages/OrderSuccessPage";
 import AboutPage from "./features/pages/AboutPage";
 import TeamPage from "./features/pages/TeamPage";
 import UserOrderPage from "./features/pages/UserOrderPage";
+import UserProfilePage from "./features/pages/UserProfilePage";
+import { fetchLoggedInUserAsync } from "./features/user/userSlice";
 
 const router = createBrowserRouter([
   {
@@ -71,6 +73,14 @@ const router = createBrowserRouter([
     ),
   },
   {
+    path: "/profile",
+    element: (
+      <Protected>
+        <UserProfilePage />
+      </Protected>
+    ),
+  },
+  {
     path: "/checkout",
     element: (
       <Protected>
@@ -102,6 +112,7 @@ function App() {
   useEffect(() => {
     if (user) {
       dispatch(fetchItemByUseridAsync(user.id));
+      dispatch(fetchLoggedInUserAsync(user.id));
     }
   }, [dispatch, user]);
 

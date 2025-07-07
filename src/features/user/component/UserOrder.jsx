@@ -1,7 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectLoggedInUser } from "../../auth/authSlice";
-import { fetchLoggedInUserOrderAsync, selectuserOrder } from "../userSlice";
+import {
+  fetchLoggedInUserOrderAsync,
+  selectUserInfo,
+  selectuserOrder,
+} from "../userSlice";
 
 import {
   TruckIcon,
@@ -13,7 +16,7 @@ import {
 
 const UserOrder = () => {
   const dispatch = useDispatch();
-  const user = useSelector(selectLoggedInUser);
+  const user = useSelector(selectUserInfo);
   const orders = useSelector(selectuserOrder);
 
   useEffect(() => {
