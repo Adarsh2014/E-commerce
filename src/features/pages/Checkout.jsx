@@ -110,7 +110,7 @@ function Checkout() {
                 dispatch(
                   updateUserAsync({
                     ...user,
-                    addresses: [...user.address, data],
+                    addresses: [...user.addresses, data],
                   })
                 );
                 reset();

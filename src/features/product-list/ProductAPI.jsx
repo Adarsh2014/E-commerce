@@ -59,7 +59,7 @@ export async function fetchProductsByFilter(filter, sort, pagination) {
 
     const totalItem = data.length;
     console.log("Total items:", totalItem);
-    return { data: { products: data, totalItem: 30 } };
+    return { data: { products: data, totalItem: 35 } };
   } catch (error) {
     console.error("Error fetching all products:", error.message);
     return { data: [] };
@@ -97,6 +97,26 @@ export async function fetchBrands() {
 export async function fetchWeight() {
   try {
     const response = await fetch("http://localhost:3000/weight");
+    if (!response.ok) {
+      throw new Error(`HTTP error: ${response.status}`);
+    }
+    const data = await response.json();
+    return { data };
+  } catch (error) {
+    console.error("Error fetching all products:", error.message);
+    return { data: [] };
+  }
+}
+
+export async function addToProduct(product) {
+  try {
+    const response = await fetch("http://localhost:3000/products", {
+      method: "POST",
+      body: JSON.stringify(product),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
     if (!response.ok) {
       throw new Error(`HTTP error: ${response.status}`);
     }

@@ -38,7 +38,7 @@ import {
   selectCategories,
   selectTotalItem,
   selectWeight,
-} from "../ProductSlice";
+} from "../../product-list/ProductSlice";
 import { ITEM_PER_PAGE } from "../../../app/constant";
 const sortOptions = [
   { name: "Best Rating", sort: "rating", order: "desc", current: false },
@@ -50,14 +50,13 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-const ProductList = () => {
+const AdminProductList = () => {
   const dispatch = useDispatch();
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const products = useSelector(selectAllProducts);
   const brands = useSelector(selectBrands);
   const categories = useSelector(selectCategories);
   const weight = useSelector(selectWeight);
-
   const filters = [
     {
       id: "brand",
@@ -106,6 +105,7 @@ const ProductList = () => {
   };
 
   const handlePage = (page) => {
+    console.log("page", page);
     setPage(page);
   };
 
@@ -207,6 +207,14 @@ const ProductList = () => {
 
               {/* {Start below Product Grid code} */}
               <div className="lg:col-span-3">
+                <div>
+                  <Link
+                    to="/admin/product-form"
+                    className="px-4 mx-6 py-2 my-5 bg-green-600 text-white font-semibold rounded-md shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-150 ease-in-out"
+                  >
+                    Add New Product
+                  </Link>
+                </div>
                 <ProductGrid products={products} />
               </div>
               {/* {end above Product Grid code} */}
@@ -229,7 +237,7 @@ const ProductList = () => {
   );
 };
 
-export default ProductList;
+export default AdminProductList;
 
 function MobileFilter({ mobileFiltersOpen, setMobileFiltersOpen, filters }) {
   return (
@@ -432,44 +440,55 @@ function ProductGrid({ products }) {
         <div className="mx-auto max-w-2xl px-4 py-0 sm:px-6 sm:py-0 lg:max-w-7xl lg:px-8">
           <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
             {products.data?.map((product) => (
-              <Link to={`/product-detail/${product.id}`} key={product.id}>
-                {" "}
-                {/* Keep the outer Link */}
-                <div className="group relative border-solid border-1 p-2">
-                  <img
-                    alt={product.title}
-                    src={product.thumbnail}
-                    className="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-70"
-                  />
-                  <div className="mt-4 flex justify-between">
-                    <div>
-                      <h3 className="text-sm text-gray-700">
-                        {/* REMOVE THE <a> TAG HERE */}
-                        <span
-                          aria-hidden="true"
-                          className="absolute inset-0" // This span correctly expands the outer Link's click area
-                        />
-                        {product.title}
-                      </h3>
-                      <p className="mt-1 text-sm text-gray-500">
-                        <StarIcon className="w-6 h-6 inline" />
-                        <span className="align-bottom">{product.rating}</span>
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-sm block font-medium text-gray-900">
-                        ${" "}
-                        {Math.round(
-                          product.price * (1 - product.discountPercentage / 100)
-                        )}
-                      </p>
-                      <p className="text-sm line-through block font-medium text-gray-400">
-                        $ {product.price}
-                      </p>
+              <div>
+                <Link
+                  to={`/admin/product-detail/${product.id}`}
+                  key={product.id}
+                >
+                  {" "}
+                  {/* Keep the outer Link */}
+                  <div className="group relative border-solid border-1 p-2">
+                    <img
+                      alt={product.title}
+                      src={product.thumbnail}
+                      className="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-70"
+                    />
+                    <div className="mt-4 flex justify-between">
+                      <div>
+                        <h3 className="text-sm text-gray-700">
+                          {/* REMOVE THE <a> TAG HERE */}
+                          <span
+                            aria-hidden="true"
+                            className="absolute inset-0" // This span correctly expands the outer Link's click area
+                          />
+                          {product.title}
+                        </h3>
+                        <p className="mt-1 text-sm text-gray-500">
+                          <StarIcon className="w-6 h-6 inline" />
+                          <span className="align-bottom">{product.rating}</span>
+                        </p>
+                      </div>
+                      <div>
+                        <p className="text-sm block font-medium text-gray-900">
+                          ${" "}
+                          {Math.round(
+                            product.price *
+                              (1 - product.discountPercentage / 100)
+                          )}
+                        </p>
+                        <p className="text-sm line-through block font-medium text-gray-400">
+                          $ {product.price}
+                        </p>
+                      </div>
                     </div>
                   </div>
+                </Link>
+                <div>
+                  <button className="px-4 py-2 my-5 bg-indigo-600 text-white font-semibold rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-150 ease-in-out">
+                    Edit Product
+                  </button>
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
         </div>

@@ -84,6 +84,9 @@ const UserProfile = () => {
               {user.name || "New User"}
             </h2>
             <p className="text-lg opacity-90 mt-1">{user.email}</p>
+            {user.role == "admin" && (
+              <p className="text-lg opacity-90 mt-1">Role : {user.role}</p>
+            )}
           </div>
         </div>
 

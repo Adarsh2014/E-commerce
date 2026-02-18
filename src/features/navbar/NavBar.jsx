@@ -15,16 +15,13 @@ import {
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { selectCartItems } from "../cart/cartSlice";
+import { selectLoggedInUser } from "../auth/authSlice";
 
-const user = {
-  name: "Adarsh Dubey",
-  email: "adarsh14dubey@gmail.com",
-  imageUrl: "https://avatars.githubusercontent.com/u/107687438?v=4",
-};
 const navigation = [
-  { name: "Dashboard", link: "/", current: false },
-  { name: "Team", link: "/team", current: false },
-  { name: "About", link: "/about", current: false },
+  { name: "Dashboard", link: "/", user: true },
+  { name: "Team", link: "/team", user: true },
+  { name: "About", link: "/about", user: true },
+  { name: "Admin", link: "/admin", admin: true },
 ];
 const userNavigation = [
   { name: "My Profile", link: "/profile" },
@@ -37,6 +34,7 @@ function classNames(...classes) {
 }
 const NavBar = ({ children }) => {
   const item = useSelector(selectCartItems);
+  const user = useSelector(selectLoggedInUser);
   return (
     <div className="min-h-full">
       <Disclosure as="nav" className="bg-gray-800">
@@ -44,7 +42,7 @@ const NavBar = ({ children }) => {
           <div className="flex h-16 items-center justify-between">
             <div className="flex items-center">
               <div className="shrink-0">
-                <Link to="/">
+                <Link to="/admin">
                   <img
                     alt="Your Company"
                     src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
@@ -54,21 +52,23 @@ const NavBar = ({ children }) => {
               </div>
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
-                  {navigation.map((item) => (
-                    <Link
-                      key={item.name}
-                      to={item.link}
-                      aria-current={item.current ? "page" : undefined}
-                      className={classNames(
-                        item.current
-                          ? "bg-gray-900 text-white"
-                          : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                        "rounded-md px-3 py-2 text-sm font-medium"
-                      )}
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
+                  {navigation.map((item) =>
+                    item[user.role] ? (
+                      <Link
+                        key={item.name}
+                        to={item.link}
+                        aria-current={item.current ? "page" : undefined}
+                        className={classNames(
+                          item.current
+                            ? "bg-gray-900 text-white"
+                            : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                          "rounded-md px-3 py-2 text-sm font-medium"
+                        )}
+                      >
+                        {item.name}
+                      </Link>
+                    ) : null
+                  )}
                 </div>
               </div>
             </div>
@@ -98,7 +98,7 @@ const NavBar = ({ children }) => {
                       <span className="sr-only">Open user menu</span>
                       <img
                         alt=""
-                        src={user.imageUrl}
+                        src="/man-user-circle-icon.svg"
                         className="size-8 rounded-full"
                       />
                     </MenuButton>
@@ -141,29 +141,30 @@ const NavBar = ({ children }) => {
 
         <DisclosurePanel className="md:hidden">
           <div className="space-y-1 px-2 pt-2 pb-3 sm:px-3">
-            {navigation.map((item) => (
-              <DisclosureButton
-                key={item.name}
-                as="Link"
-                to={item.link}
-                aria-current={item.current ? "page" : undefined}
-                className={classNames(
-                  item.current
-                    ? "bg-gray-900 text-white"
-                    : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                  "block rounded-md px-3 py-2 text-base font-medium"
-                )}
-              >
-                {item.name}
-              </DisclosureButton>
-            ))}
+            {navigation.map((item) =>
+              item[user.role] ? (
+                <Link
+                  key={item.name}
+                  to={item.link}
+                  aria-current={item.current ? "page" : undefined}
+                  className={classNames(
+                    item.current
+                      ? "bg-gray-900 text-white"
+                      : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                    "block rounded-md px-3 py-2 text-base font-medium"
+                  )}
+                >
+                  {item.name}
+                </Link>
+              ) : null
+            )}
           </div>
           <div className="border-t border-gray-700 pt-4 pb-3">
             <div className="flex items-center px-5">
               <div className="shrink-0">
                 <img
-                  alt=""
-                  src={user.imageUrl}
+                  alt="Profile"
+                  src="/man-user-circle-icon.svg"
                   className="size-10 rounded-full"
                 />
               </div>

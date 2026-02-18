@@ -40,15 +40,17 @@ export default function Cart() {
         {item.length === 0 ? (
           <div className="text-center py-24">
             <img
-              src="https://cdn-icons-png.flaticon.com/512/11329/11329450.png"
+              src="https://htmlstream.com/front/assets/svg/illustrations/oc-empty-cart.svg"
               alt="Empty Cart"
-              className="mx-auto mb-6 w-24 h-24 opacity-70"
+              className="mx-auto mb-8 w-64 h-64 opacity-80"
             />
             <h2 className="text-2xl font-semibold text-gray-700">
               Your cart is currently empty
             </h2>
             <p className="mt-2 text-gray-500">
-              Looks like you haven’t added anything to your cart yet.
+              Before proceed to checkout you must add some products to your
+              shopping cart. Just relax, let us help you find some first-class
+              products
             </p>
             <div className="mt-6">
               <Link to="/">

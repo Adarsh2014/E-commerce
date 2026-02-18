@@ -1795,6 +1795,40 @@
         "https://cdn.dummyjson.com/product-images/groceries/kiwi/1.webp"
       ],
       "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/kiwi/thumbnail.webp"
+    },
+    {
+      "id": "430f",
+      "title": "aajaa",
+      "discription": "ajjaskdkl",
+      "category": "groceries",
+      "brand": "ChicCosmetics",
+      "weight": "8",
+      "price": "4000",
+      "discountPercentage": "50",
+      "rating": "4.5",
+      "stock": "500",
+      "thumbnail": "https://www.w3schools.com/images/w3schools_green.jpg",
+      "images": [
+        "https://www.w3schools.com/images/w3schools_green.jpg",
+        "https://www.w3schools.com/images/w3schools_green.jpg"
+      ]
+    },
+    {
+      "id": "3275",
+      "title": "Zara",
+      "discription": "Zara Is good",
+      "category": "fragrances",
+      "brand": "GlamourBeauty",
+      "weight": "5",
+      "price": "4000",
+      "discountPercentage": "80",
+      "rating": "4.6",
+      "stock": "200",
+      "thumbnail": "https://www.w3schools.com/images/w3schools_green.jpg",
+      "images": [
+        "https://www.w3schools.com/images/w3schools_green.jpg",
+        "https://www.w3schools.com/images/w3schools_green.jpg"
+      ]
     }
   ],
   "categories": [
@@ -1934,9 +1968,10 @@
       "id": "8e64",
       "email": "adarsh14dubey@gmail.com",
       "password": "Amma@123",
+      "role": "user",
       "addresses": [
         {
-          "name": "Adarsh Dubey",
+          "name": "Adarsh Dubey Rajesh",
           "email": "adarsh14dubey@gmail.com",
           "country": "India",
           "street": "Lokmanya Nagar",
@@ -1964,17 +1999,6 @@
           "state": "Maharashtra",
           "pinCode": "400604",
           "phone": "09136531570"
-        },
-        {
-          "name": "Adarsh Dubey",
-          "email": "adarsh14dubey@gmail.com",
-          "country": "India",
-          "street": "Wagle I.E.",
-          "city": "Thane",
-          "state": "Maharashtra",
-          "pinCode": "400604",
-          "phone": "09136531570",
-          "id": 1751924203209
         }
       ]
     },
@@ -1982,7 +2006,7 @@
       "id": "8b5d",
       "email": "prashantgupta@chutiya.com",
       "password": "Amma@123",
-      "address": [],
+      "role": "user",
       "addresses": [
         {
           "name": "Adarsh Dubey",
@@ -2011,7 +2035,7 @@
       "id": "2421",
       "email": "amityadav@gmail.com",
       "password": "Amma@123",
-      "address": [],
+      "role": "user",
       "addresses": [
         {
           "name": "Adarsh Dubey",
@@ -2041,7 +2065,46 @@
       "id": "e20c",
       "email": "rishiladi@gmail.com",
       "password": "Amma@123",
-      "address": []
+      "role": "admin"
+    },
+    {
+      "id": "a763",
+      "email": "vishal@gmail.com",
+      "password": "Amma@123",
+      "addresses": [
+        {
+          "name": "Adarsh Dubey",
+          "email": "adarsh14dubey@gmail.com",
+          "country": "India",
+          "street": "Lokmanya Nagar",
+          "city": "Thane",
+          "state": "Maharashtra",
+          "pinCode": "400604",
+          "phone": "09136531570"
+        },
+        {
+          "name": "Adarsh Dubey",
+          "email": "adarsh14dubey@gmail.com",
+          "country": "India",
+          "street": "Wagle I.E.",
+          "city": "Thane",
+          "state": "Maharashtra",
+          "pinCode": "400604",
+          "phone": "09136531570",
+          "id": 1751954898756
+        },
+        {
+          "name": "Adarsh Dubey",
+          "email": "adarsh14dubey@gmail.com",
+          "country": "India",
+          "street": "Indira nagar",
+          "city": "Thane",
+          "state": "Maharashtra",
+          "pinCode": "400604",
+          "phone": "09136531570"
+        }
+      ],
+      "role": "user"
     }
   ],
   "cart": [],
@@ -2985,6 +3048,407 @@
         "pinCode": "400604",
         "phone": "09136531570",
         "id": 1751922316105
+      },
+      "status": "Pending"
+    },
+    {
+      "id": "e023",
+      "item": [
+        {
+          "id": "0464",
+          "title": "Red Lipstick",
+          "description": "The Red Lipstick is a classic and bold choice for adding a pop of color to your lips. With a creamy and pigmented formula, it provides a vibrant and long-lasting finish.",
+          "category": "beauty",
+          "price": 12.99,
+          "discountPercentage": 12.16,
+          "rating": 4.36,
+          "stock": 91,
+          "tags": [
+            "beauty",
+            "lipstick"
+          ],
+          "brand": "Chic Cosmetics",
+          "sku": "BEA-CHI-LIP-004",
+          "weight": 1,
+          "dimensions": {
+            "width": 18.11,
+            "height": 28.38,
+            "depth": 22.17
+          },
+          "warrantyInformation": "3 year warranty",
+          "shippingInformation": "Ships in 1 week",
+          "availabilityStatus": "In Stock",
+          "reviews": [
+            {
+              "rating": 4,
+              "comment": "Great product!",
+              "date": "2025-04-30T09:41:02.053Z",
+              "reviewerName": "Liam Garcia",
+              "reviewerEmail": "liam.garcia@x.dummyjson.com"
+            },
+            {
+              "rating": 5,
+              "comment": "Great product!",
+              "date": "2025-04-30T09:41:02.053Z",
+              "reviewerName": "Ruby Andrews",
+              "reviewerEmail": "ruby.andrews@x.dummyjson.com"
+            },
+            {
+              "rating": 5,
+              "comment": "Would buy again!",
+              "date": "2025-04-30T09:41:02.053Z",
+              "reviewerName": "Clara Berry",
+              "reviewerEmail": "clara.berry@x.dummyjson.com"
+            }
+          ],
+          "returnPolicy": "7 days return policy",
+          "minimumOrderQuantity": 40,
+          "meta": {
+            "createdAt": "2025-04-30T09:41:02.053Z",
+            "updatedAt": "2025-04-30T09:41:02.053Z",
+            "barcode": "9467746727219",
+            "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+          },
+          "images": [
+            "https://cdn.dummyjson.com/product-images/beauty/red-lipstick/1.webp"
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/red-lipstick/thumbnail.webp",
+          "quantity": 1,
+          "user": "a763"
+        }
+      ],
+      "sum": 12.99,
+      "totalItems": 1,
+      "user": {
+        "id": "a763",
+        "email": "vishal@gmail.com",
+        "password": "Amma@123",
+        "addresses": [
+          {
+            "name": "Adarsh Dubey",
+            "email": "adarsh14dubey@gmail.com",
+            "country": "India",
+            "street": "Lokmanya Nagar",
+            "city": "Thane",
+            "state": "Maharashtra",
+            "pinCode": "400604",
+            "phone": "09136531570"
+          },
+          {
+            "name": "Adarsh Dubey",
+            "email": "adarsh14dubey@gmail.com",
+            "country": "India",
+            "street": "Wagle I.E.",
+            "city": "Thane",
+            "state": "Maharashtra",
+            "pinCode": "400604",
+            "phone": "09136531570",
+            "id": 1751954898756
+          },
+          {
+            "name": "Adarsh Dubey",
+            "email": "adarsh14dubey@gmail.com",
+            "country": "India",
+            "street": "Indira nagar",
+            "city": "Thane",
+            "state": "Maharashtra",
+            "pinCode": "400604",
+            "phone": "09136531570"
+          }
+        ],
+        "role": "user"
+      },
+      "paymentMethod": "card",
+      "selectedAddress": {
+        "name": "Adarsh Dubey",
+        "email": "adarsh14dubey@gmail.com",
+        "country": "India",
+        "street": "Wagle I.E.",
+        "city": "Thane",
+        "state": "Maharashtra",
+        "pinCode": "400604",
+        "phone": "09136531570",
+        "id": 1751954898756
+      },
+      "status": "Pending"
+    },
+    {
+      "id": "64be",
+      "item": [
+        {
+          "id": "9d15",
+          "title": "Essence Mascara Lash Princess",
+          "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
+          "category": "beauty",
+          "price": 9.99,
+          "discountPercentage": 10.48,
+          "rating": 2.56,
+          "stock": 99,
+          "tags": [
+            "beauty",
+            "mascara"
+          ],
+          "brand": "Essence",
+          "sku": "BEA-ESS-ESS-001",
+          "weight": 4,
+          "dimensions": {
+            "width": 15.14,
+            "height": 13.08,
+            "depth": 22.99
+          },
+          "warrantyInformation": "1 week warranty",
+          "shippingInformation": "Ships in 3-5 business days",
+          "availabilityStatus": "In Stock",
+          "reviews": [
+            {
+              "rating": 3,
+              "comment": "Would not recommend!",
+              "date": "2025-04-30T09:41:02.053Z",
+              "reviewerName": "Eleanor Collins",
+              "reviewerEmail": "eleanor.collins@x.dummyjson.com"
+            },
+            {
+              "rating": 4,
+              "comment": "Very satisfied!",
+              "date": "2025-04-30T09:41:02.053Z",
+              "reviewerName": "Lucas Gordon",
+              "reviewerEmail": "lucas.gordon@x.dummyjson.com"
+            },
+            {
+              "rating": 5,
+              "comment": "Highly impressed!",
+              "date": "2025-04-30T09:41:02.053Z",
+              "reviewerName": "Eleanor Collins",
+              "reviewerEmail": "eleanor.collins@x.dummyjson.com"
+            }
+          ],
+          "returnPolicy": "No return policy",
+          "minimumOrderQuantity": 48,
+          "meta": {
+            "createdAt": "2025-04-30T09:41:02.053Z",
+            "updatedAt": "2025-04-30T09:41:02.053Z",
+            "barcode": "5784719087687",
+            "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+          },
+          "images": [
+            "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/1.webp"
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp",
+          "quantity": 1,
+          "user": "8e64"
+        },
+        {
+          "id": "cf3f",
+          "title": "aajaa",
+          "discription": "ajjaskdkl",
+          "category": "groceries",
+          "brand": "ChicCosmetics",
+          "weight": "8",
+          "price": "4000",
+          "discountPercentage": "50",
+          "rating": "4.5",
+          "stock": "500",
+          "thumbnail": "https://www.w3schools.com/images/w3schools_green.jpg",
+          "images": [
+            "https://www.w3schools.com/images/w3schools_green.jpg",
+            "https://www.w3schools.com/images/w3schools_green.jpg"
+          ],
+          "quantity": 3,
+          "user": "8e64"
+        }
+      ],
+      "sum": 12009.99,
+      "totalItems": 4,
+      "user": {
+        "id": "8e64",
+        "email": "adarsh14dubey@gmail.com",
+        "password": "Amma@123",
+        "role": "user",
+        "addresses": [
+          {
+            "name": "Adarsh Dubey",
+            "email": "adarsh14dubey@gmail.com",
+            "country": "India",
+            "street": "Lokmanya Nagar",
+            "city": "Thane",
+            "state": "Maharashtra",
+            "pinCode": "400604",
+            "phone": "09136531570"
+          },
+          {
+            "name": "Prashant Gupta",
+            "email": "prashantgupta@chutiya.com",
+            "country": "India",
+            "street": "Lokmanya Nagar",
+            "city": "Thane",
+            "state": "Maharashtra",
+            "pinCode": "400604",
+            "phone": "7977007426"
+          },
+          {
+            "name": "Amit Yadav",
+            "email": "adarsh14dubey@gmail.com",
+            "country": "India",
+            "street": "Wagle I.E.",
+            "city": "Thane",
+            "state": "Maharashtra",
+            "pinCode": "400604",
+            "phone": "09136531570"
+          },
+          {
+            "name": "Adarsh Dubey",
+            "email": "adarsh14dubey@gmail.com",
+            "country": "India",
+            "street": "Wagle I.E.",
+            "city": "Thane",
+            "state": "Maharashtra",
+            "pinCode": "400604",
+            "phone": "09136531570",
+            "id": 1751924203209
+          }
+        ]
+      },
+      "paymentMethod": "card",
+      "selectedAddress": {
+        "name": "Adarsh Dubey",
+        "email": "adarsh14dubey@gmail.com",
+        "country": "India",
+        "street": "Wagle I.E.",
+        "city": "Thane",
+        "state": "Maharashtra",
+        "pinCode": "400604",
+        "phone": "09136531570",
+        "id": 1751924203209
+      },
+      "status": "Pending"
+    },
+    {
+      "id": "f8d0",
+      "item": [
+        {
+          "id": "0e66",
+          "title": "Essence Mascara Lash Princess",
+          "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
+          "category": "beauty",
+          "price": 9.99,
+          "discountPercentage": 10.48,
+          "rating": 2.56,
+          "stock": 99,
+          "tags": [
+            "beauty",
+            "mascara"
+          ],
+          "brand": "Essence",
+          "sku": "BEA-ESS-ESS-001",
+          "weight": 4,
+          "dimensions": {
+            "width": 15.14,
+            "height": 13.08,
+            "depth": 22.99
+          },
+          "warrantyInformation": "1 week warranty",
+          "shippingInformation": "Ships in 3-5 business days",
+          "availabilityStatus": "In Stock",
+          "reviews": [
+            {
+              "rating": 3,
+              "comment": "Would not recommend!",
+              "date": "2025-04-30T09:41:02.053Z",
+              "reviewerName": "Eleanor Collins",
+              "reviewerEmail": "eleanor.collins@x.dummyjson.com"
+            },
+            {
+              "rating": 4,
+              "comment": "Very satisfied!",
+              "date": "2025-04-30T09:41:02.053Z",
+              "reviewerName": "Lucas Gordon",
+              "reviewerEmail": "lucas.gordon@x.dummyjson.com"
+            },
+            {
+              "rating": 5,
+              "comment": "Highly impressed!",
+              "date": "2025-04-30T09:41:02.053Z",
+              "reviewerName": "Eleanor Collins",
+              "reviewerEmail": "eleanor.collins@x.dummyjson.com"
+            }
+          ],
+          "returnPolicy": "No return policy",
+          "minimumOrderQuantity": 48,
+          "meta": {
+            "createdAt": "2025-04-30T09:41:02.053Z",
+            "updatedAt": "2025-04-30T09:41:02.053Z",
+            "barcode": "5784719087687",
+            "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+          },
+          "images": [
+            "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/1.webp"
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp",
+          "quantity": 5,
+          "user": "8e64"
+        }
+      ],
+      "sum": 49.95,
+      "totalItems": 5,
+      "user": {
+        "id": "8e64",
+        "email": "adarsh14dubey@gmail.com",
+        "password": "Amma@123",
+        "role": "user",
+        "addresses": [
+          {
+            "name": "Adarsh Dubey",
+            "email": "adarsh14dubey@gmail.com",
+            "country": "India",
+            "street": "Lokmanya Nagar",
+            "city": "Thane",
+            "state": "Maharashtra",
+            "pinCode": "400604",
+            "phone": "09136531570"
+          },
+          {
+            "name": "Prashant Gupta",
+            "email": "prashantgupta@chutiya.com",
+            "country": "India",
+            "street": "Lokmanya Nagar",
+            "city": "Thane",
+            "state": "Maharashtra",
+            "pinCode": "400604",
+            "phone": "7977007426"
+          },
+          {
+            "name": "Amit Yadav",
+            "email": "adarsh14dubey@gmail.com",
+            "country": "India",
+            "street": "Wagle I.E.",
+            "city": "Thane",
+            "state": "Maharashtra",
+            "pinCode": "400604",
+            "phone": "09136531570"
+          },
+          {
+            "name": "Adarsh Dubey",
+            "email": "adarsh14dubey@gmail.com",
+            "country": "India",
+            "street": "Wagle I.E.",
+            "city": "Thane",
+            "state": "Maharashtra",
+            "pinCode": "400604",
+            "phone": "09136531570",
+            "id": 1751924203209
+          }
+        ]
+      },
+      "paymentMethod": "card",
+      "selectedAddress": {
+        "name": "Prashant Gupta",
+        "email": "prashantgupta@chutiya.com",
+        "country": "India",
+        "street": "Lokmanya Nagar",
+        "city": "Thane",
+        "state": "Maharashtra",
+        "pinCode": "400604",
+        "phone": "7977007426"
       },
       "status": "Pending"
     }
